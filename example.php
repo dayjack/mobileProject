@@ -1,9 +1,6 @@
 <?php
-// DB 관련 정보
-$host = "43.206.19.165"; // 서버 주소
-$username = "root"; // DB 사용자 이름
-$password = "Yujin0822!"; // DB 비밀번호
-$dbname = "mydb"; // DB 이름
+
+require("/var/www/db/dbset.php");
 
 header('Content-Type: application/json; charset=UTF-8'); // JSON 형태로 데이터 출력
 

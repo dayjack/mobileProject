@@ -1,8 +1,5 @@
 <?php
-    $host = "43.206.19.165";
-    $user = "mobile";
-    $pw = "Yujin0822!";
-    $dbName = "mydb";
+    require("/var/www/db/dbset.php");
 
     $conn = new mysqli($host, $user, $pw, $dbName);
     
