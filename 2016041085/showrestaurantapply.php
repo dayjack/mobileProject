@@ -1,8 +1,6 @@
 <?php 
-$host = "43.206.19.165"; // 서버 주소
-$username = "root"; // DB 사용자 이름
-$password = "Yujin0822!"; // DB 비밀번호
-$dbname = "mydb"; // DB 이름
+
+require("/var/www/db/dbset.php");
 
 $conn = mysqli_connect($host, $username, $password, $dbname); // DB 연결
 if (!($conn)) {
@@ -23,7 +21,6 @@ $menu;
 // $food_img;
 $food_category;
 $hashtag;
-
 
 
 $result = mysqli_query($conn,"select * from restaurant_apply where restaurant_id=$restaurant_id");
