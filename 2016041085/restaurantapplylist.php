@@ -1,29 +1,42 @@
 <?php
-// DB 관련 정보
 
+/*
+    식당 승인 요청한 목록들을 보여주는 페이지
+    식당 이름 클릭시 그 식당 요청 정보를 보여주는 페이지(showrestaurantapply.php)로 이동
+ */
+
+// DB 관련 정보
 require("/var/www/db/dbset.php");
 
-$conn = mysqli_connect($host, $username, $password, $dbname); // DB 연결
+//ㅇb 연결
+$conn = mysqli_connect($host, $username, $password, $dbname); 
+
+// db 연결 오류 체크
 if (!($conn)) {
     echo "db 연결 실패: " . mysqli_connect_error();
 }
+
+// db 데이터 문자 인코딩 설정
 mysqli_query($db, "set session character_set_connection=utf8;");
 mysqli_query($db, "set session character_set_results=utf8;");
 mysqli_query($db, "set session character_set_client=utf8;");
 mysqli_set_charset($conn,"utf8mb4");
 
-echo "";
+// 배열 두개에 간단한 게시판 기능 구현을 위한 데이터 저장
 $array_id = [];
 $array_name = [];
+// 받아온 데이터수, 반복문에 사용할 변수
 $count;
+// 쿼리문 실행, 식당 승인 요청한 목록을 불러온다.
 $result = mysqli_query($conn,"select * from restaurant_apply");
+// 테이블에서 필요한 정보를 빼와 배여렝 저장
 while($row = mysqli_fetch_array($result)) {
-  //echo $row['restaurant_id'];
-  //echo "<br>";
   array_push($array_id,$row['restaurant_id']);
   array_push($array_name,$row['restaurant_name']);
 }
+// 연결 종료
 mysqli_close($conn);
+// 배열의 길이를 저장
 $count = count($array_id);
 
 ?>
@@ -40,9 +53,7 @@ $count = count($array_id);
 <body>
     <h2><center>식당 승인 페이지</center></h2><hr>
     <?php
-    // echo "$count <br>";
     for ($i=0 ; $i < $count ; $i++) {
-        // echo "$array_id[$i]  :  $array_name[$i] <br>";
         echo "<a href='./showrestaurantapply.php?restaurant_id=$array_id[$i]'> $array_name[$i] </a><hr>";    
     }
     ?>

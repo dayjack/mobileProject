@@ -1,5 +1,5 @@
 <?php
-
+// datebase 로그인 정보는 다른 파일로 분리
 require("/var/www/db/dbset.php");
 
 header('Content-Type: application/json; charset=UTF-8'); // JSON 형태로 데이터 출력

@@ -1,6 +1,9 @@
 <?php
-    require("/var/www/db/dbset.php");
 
+    // datebase 로그인 정보는 다른 파일로 분리
+    require("/var/www/db/dbset.php");
+    
+    // db 연결
     $conn = new mysqli($host, $user, $pw, $dbName);
     
     /* DB 연결 확인 */

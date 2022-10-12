@@ -1,16 +1,28 @@
 <?php 
 
+/*
+    식당 승인 요청 목록 페이지(restaurantapplylist.php)에서 식당이름 클릭시,
+    그 식당이 요청 정보를 보여주는 페이지로 이동
+    승인 또는 거절을 할수 있다.
+ */
+
+// DB 관련 정보
 require("/var/www/db/dbset.php");
 
-$conn = mysqli_connect($host, $username, $password, $dbname); // DB 연결
+// db 연결
+$conn = mysqli_connect($host, $username, $password, $dbname);
+// db 연결 오류 체크
 if (!($conn)) {
     echo "db 연결 실패: " . mysqli_connect_error();
 }
+
+// db 데이터 문자 인코딩 설정
 mysqli_query($db, "set session character_set_connection=utf8;");
 mysqli_query($db, "set session character_set_results=utf8;");
 mysqli_query($db, "set session character_set_client=utf8;");
 mysqli_set_charset($conn,"utf8mb4");
 
+// 데이터를 저장할 변수
 $restaurant_id = $_GET[restaurant_id];
 $crn;
 $restaurant_name;
@@ -22,11 +34,9 @@ $menu;
 $food_category;
 $hashtag;
 
-
+// get으로 받아온 변수를 이용해 식당의 정보를 가져옴
 $result = mysqli_query($conn,"select * from restaurant_apply where restaurant_id=$restaurant_id");
 while($row = mysqli_fetch_array($result)) {
-  //echo $row['restaurant_id'];
-  //echo "<br>";
   $crn = $row['crn'];
   $restaurant_name = $row['restaurant_name'];
   $email = $row['email'];
@@ -37,6 +47,7 @@ while($row = mysqli_fetch_array($result)) {
   $food_category = $row['food_category'];
   $hashtag = $row['hashtag'];
 }
+// 연결 종료
 mysqli_close($conn);
 
 ?>
@@ -63,8 +74,6 @@ mysqli_close($conn);
     $menu_br = nl2br($menu);
     echo "메뉴<br><hr><br>$menu_br<br><hr><br>";
    
-    
-    // echo "음식 이미지<br><hr><br>$food_img<br><hr><br>";
     switch ($food_category) {
         case 1:
             echo "음식 카테고리<br><hr><br>중식<br><hr><br>";
