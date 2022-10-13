@@ -116,7 +116,7 @@ mysqli_close($conn);
     if (count($food_img) != 0) {
         echo "음식사진<br>";
         for ( $i=0 ; $i < count($food_img) ; $i++ ) {
-            echo "<p class = \"middle info\"><br><img src='$food_img[$i]'><br><br></p>";
+            echo "<p class = \"middle info\"><img src='$food_img[$i]'></p>";
         }
     }
     

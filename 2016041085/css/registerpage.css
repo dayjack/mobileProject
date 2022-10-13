@@ -45,3 +45,8 @@ a {
 .middle.info {
     background-color : #f3d0f3;
 }
+img {
+    max-width: 100%;
+    width: auto !important;
+    height: auto !important;
+}

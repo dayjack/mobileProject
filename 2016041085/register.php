@@ -27,7 +27,7 @@
         <br>이메일 <br><br>
         <input type="text" name="email" placeholder="xxxxxxxx@gmail.com"><br>
         <br>주소 <br><br>
-        <input type="text" name="address"><br>
+        <input type="text" name="address" placeholder="여기에 주소 입력"><br>
 
         <label for="restaurant_info">식당 정보 입력</label><br><br>
         <textarea name="restaurant_info" id="restaurant_info" cols="40" rows="30" placeholder="ex) 운영시간: 매일 -오전 10:10 ~ 오후 9:45
