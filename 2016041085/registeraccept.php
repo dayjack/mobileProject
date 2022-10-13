@@ -83,6 +83,9 @@ if ($conn->query($sql) === TRUE) {
 }
 // 연결 종료
 mysqli_close($conn);
+// 페이지 이동
+echo ("<script>location.href='./register.php';</script>");
+echo "<script>alert('신청을 승인하였습니다.')</script>";
 
 ?>
 

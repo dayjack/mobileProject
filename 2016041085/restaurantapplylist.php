@@ -49,14 +49,24 @@ $count = count($array_id);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>식당 승인 페이지</title>
+    <link rel="stylesheet" href="css/registerpage.css">
 </head>
 <body>
-    <h2><center>식당 승인 페이지</center></h2><hr>
+    <div class="topParent">
+        <div class="topChild">
+            <h2 class="topText">식당 승인 페이지</h2>
+        </div>
+    </div>
+    <div class="middle">
+       <br>
     <?php
     for ($i=0 ; $i < $count ; $i++) {
-        echo "<a href='./showrestaurantapply.php?restaurant_id=$array_id[$i]'> $array_name[$i] </a><hr>";    
+        echo "<br><a href='./showrestaurantapply.php?restaurant_id=$array_id[$i]'> $array_name[$i] </a><hr>";
+          
     }
     ?>
+    </div>
+
     
 </body>
 </html>

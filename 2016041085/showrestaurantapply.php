@@ -62,52 +62,72 @@ mysqli_close($conn);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>식당 신청 정보 보기</title>
+    <link rel="stylesheet" href="css/registerpage.css">
 </head>
 <body>
-    <h2><center>식당 신청 정보 보기</center></h2><br><hr><br>
+<div class="topParent">
+        <div class="topChild">
+            <h2 class="topText"><center>식당 신청 정보 보기</center></h2><br><br>
+        </div>
+    </div>
+    <div class="middle">
     <?php
-    echo "사업자 번호<br><hr><br>$crn<br><hr><br>";
-    echo "학교코드<br><hr><br>$scode<br><hr><br>";
-    echo "식당명<br><hr><br>$restaurant_name<br><hr><br>";
-    echo "이메일<br><hr><br>$email<br><hr><br>";
-    echo "식당주소<br><hr><br>$address<br><hr><br>";
+    echo "<br>사업자 번호<br>";
+    echo "<p class = \"middle info\"><br>$crn<br><br></p>";
+
+    echo "학교코드<br>";
+    echo "<p class = \"middle info\"><br>$scode<br><br></p>";
+
+    echo "식당명<br>";
+    echo "<p class = \"middle info\"><br>$restaurant_name<br><br></p>";
+
+    echo "이메일<br>";
+    echo "<p class = \"middle info\"><br>$email<br><br></p>";
+
+    echo "식당 주소<br>";
+    echo "<p class = \"middle info\"><br>$address<br><br></p>";
 
     $restaurant_info_br = nl2br($restaurant_info);
-    echo "식당 정보<br><hr><br>$restaurant_info_br<br><hr><br>";
+    echo "식당 정보<br>";
+    echo "<p class = \"middle info\"><br>$restaurant_info_br<br><br></p>";
     
     $menu_br = nl2br($menu);
-    echo "메뉴<br><hr><br>$menu_br<br><hr><br>";
+    echo "메뉴<br>";
+    echo "<p class = \"middle info\"><br>$menu_br<br><br></p>";
    
+    echo "음식 카테고리<br>";
     switch ($food_category) {
         case 1:
-            echo "음식 카테고리<br><hr><br>중식<br><hr><br>";
+            echo "<p class = \"middle info\"><br>중식<br><br></p>";
             break;
         case 2:
-            echo "음식 카테고리<br><hr><br>한식<br><hr><br>";
+            echo "<p class = \"middle info\"><br>한식<br><br></p>";
             break;
         case 3:
-            echo "음식 카테고리<br><hr><br>일식<br><hr><br>";
+            echo "<p class = \"middle info\"><br>일식<br><br></p>";
             break;
         case 4:
-            echo "음식 카테고리<br><hr><br>양식<br><hr><br>";
+            echo "<p class = \"middle info\"><br>양식<br><br></p>";
             break;
         default:
-            echo "음식 카테고리<br><hr><br>기타<br><hr><br>";
+            echo "<p class = \"middle info\"><br>기타<br><br></p>";
             break;
-
     }
-    echo "음식사진<br><hr><br>";
-    for ( $i=0 ; $i < count($food_img) ; $i++ ) {
-        echo "<img src='$food_img[$i]'><br>";
+    if (count($food_img) != 0) {
+        echo "음식사진<br>";
+        for ( $i=0 ; $i < count($food_img) ; $i++ ) {
+            echo "<p class = \"middle info\"><br><img src='$food_img[$i]'><br><br></p>";
+        }
     }
-    echo "<br><hr><br>";
-   
-    echo "해시태그<br><hr><br>$hashtag<br><hr><br>";
-    ?>
-    <div style="text-align:center">
-    <input type="button" name="acceptbtn" id="acceptbtn" onclick="location.href='./accept.php?restaurant_id=<?=$restaurant_id?>'" value="승인">
-    <input type="button" name="rejectbtn" id="rejectbtn" onclick="location.href='./reject.php?restaurant_id=<?=$restaurant_id?>'" value="거절"><br><hr><br>
-    </div>
     
+   
+    echo "해시태그<br>";
+    echo "<p class = \"middle info\"><br>$hashtag<br><br></p>";
+    ?>
+      <div style="text-align:center">
+        <input type="button" name="acceptbtn" id="acceptbtn" onclick="location.href='./accept.php?restaurant_id=<?=$restaurant_id?>'" value="승인">
+        <input type="button" name="rejectbtn" id="rejectbtn" onclick="location.href='./reject.php?restaurant_id=<?=$restaurant_id?>'" value="거절"><br>
+        </div>
+    </div>
 </body>
 </html>
