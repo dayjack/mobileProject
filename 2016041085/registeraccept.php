@@ -22,17 +22,46 @@ mysqli_set_charset($conn,"utf8mb4");
 
 // 받아온 데이터들을 변수에 저장
 $crn = $_POST[crn];
+$scode = $_POST[scode];
 $restaurant_name = $_POST[restaurant_name];
 $email = $_POST[email];
 $address = $_POST[address];
 $restaurant_info = $_POST[restaurant_info];
 $menu = $_POST[menu];
-// $food_img = $_POST[food_img];
 $food_category = $_POST[food_category];
 $hashtag = $_POST[hashtag];
 
+// 이미지 처리
+
+$uploadDir = "../images/";
+$file = $_FILES['img'];
+$fileName = $file['name'];
+$tmpName = $file['tmp_name'];
+$fileNames = array();
+$file_json = array();
+
+
+for ( $i = 0 ; $i < count($fileName)  ; $i++ ) {
+    // 업로드된 파일을 내가 지정한 위치에 지정한 파일명으로 파일을 이동
+    // move_uploaded_file(현재위치, 이동할위치)
+    $result = move_uploaded_file($tmpName[$i],$uploadDir.$fileName[$i]);
+    array_push($fileNames,$fileName[$i]);
+    if($result) {
+        array_push($file_json,$uploadDir.$fileName[$i]);
+?>
+    <hr>
+    file name : <?=$fileName[$i]?>
+    <hr>
+<?php 
+    }
+}
+
+echo "<br>";
+$food_img = json_encode($file_json);
+
 // 오류 발생시에 데이터 확인용
 echo "crn :  $crn <br>"; 
+echo "scode : $scode <br>";
 echo "restaurant_name :  $restaurant_name <br>";
 echo "email :  $email <br>";
 echo "address :  $address <br>";
@@ -40,10 +69,11 @@ echo "restaurant_info :  $restaurant_info <br>";
 echo "menu :  $menu <br>";
 echo "food_category :  $food_category <br>";
 echo "hashtag :  $hashtag <br>";
+echo "food_img : $food_img";
 
 // 실행할 sql문
-$sql = "insert into restaurant_apply(crn,restaurant_name,email,address,restaurant_info,menu,food_category,hashtag)
-value('$crn','$restaurant_name','$email','$address','$restaurant_info','$menu','$food_category','$hashtag')";
+$sql = "insert into restaurant_apply(crn,restaurant_name,email,address,restaurant_info,menu,food_category,hashtag, food_img,scode)
+value('$crn','$restaurant_name','$email','$address','$restaurant_info','$menu','$food_category','$hashtag', '$food_img','$scode')";
 
 // sql문 실행
 if ($conn->query($sql) === TRUE) {

@@ -25,12 +25,13 @@ mysqli_set_charset($conn,"utf8mb4");
 // 데이터를 저장할 변수
 $restaurant_id = $_GET[restaurant_id];
 $crn;
+$scode;
+$food_img = array();
 $restaurant_name;
 $email;
 $address;
 $restaurant_info;
 $menu;
-// $food_img;
 $food_category;
 $hashtag;
 
@@ -38,14 +39,16 @@ $hashtag;
 $result = mysqli_query($conn,"select * from restaurant_apply where restaurant_id=$restaurant_id");
 while($row = mysqli_fetch_array($result)) {
   $crn = $row['crn'];
+  $scode = $row['scode'];
   $restaurant_name = $row['restaurant_name'];
   $email = $row['email'];
   $address = $row['address'];
   $restaurant_info = $row['restaurant_info'];
   $menu = $row['menu'];
-  //$food_img = $row['food_img'];
   $food_category = $row['food_category'];
   $hashtag = $row['hashtag'];
+
+  $food_img = json_decode($row['food_img']);
 }
 // 연결 종료
 mysqli_close($conn);
@@ -64,6 +67,7 @@ mysqli_close($conn);
     <h2><center>식당 신청 정보 보기</center></h2><br><hr><br>
     <?php
     echo "사업자 번호<br><hr><br>$crn<br><hr><br>";
+    echo "학교코드<br><hr><br>$scode<br><hr><br>";
     echo "식당명<br><hr><br>$restaurant_name<br><hr><br>";
     echo "이메일<br><hr><br>$email<br><hr><br>";
     echo "식당주소<br><hr><br>$address<br><hr><br>";
@@ -92,6 +96,12 @@ mysqli_close($conn);
             break;
 
     }
+    echo "음식사진<br><hr><br>";
+    for ( $i=0 ; $i < count($food_img) ; $i++ ) {
+        echo "<img src='$food_img[$i]'><br>";
+    }
+    echo "<br><hr><br>";
+   
     echo "해시태그<br><hr><br>$hashtag<br><hr><br>";
     ?>
     <div style="text-align:center">

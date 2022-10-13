@@ -15,9 +15,14 @@
 
 <body>
     <center><br><h2>식당 정보 등록 페이지</h2></br></center>
-    <form method="post" action="./registeraccept.php">
+    <form method="post" action="./registeraccept.php" enctype="multipart/form-data">
         사업자 등록번호 입력 : 
         <input type="text" name="crn" placeholder="- 없이 입력하세요"><br>
+        인접 학교 코드 :
+        <input type="text" name="scode" placeholder="- 없이 입력하세요"><br>
+        <a href='http://jubsoo2.bscu.ac.kr/src_gogocode/src_gogocode.asp' target='_blank'>학교 코드 검색해보기</a>
+        <br>
+
         식당 이름 입력 :
         <input type="text" name="restaurant_name" placeholder="ex) 맥도날드 목동사거리점"><br>
         이메일 :
@@ -33,9 +38,6 @@
         <label for="menu">메뉴 정보 입력</label><br>
         <textarea name="menu" id="menu" cols="40" rows="30" placeholder="ex) 김치찌개 - 7000
         라면 - 5000"></textarea><br>
-        
-        음식 사진 :
-        <input type="file" name="food_img" accept=".jpg, .jpeg, .png" multiple><br>
 
         음식 카테고리 :
         <select name="food_category" id="food_category">
@@ -49,7 +51,11 @@
 
         해시태그 : 
         <input type="text" name="hashtag" placeholder="ex) #ᄋᄋᄋ#ᄂᄂᄂ#ᄃᄃᄃ 와 같이 띄어쓰기 혹은 , 없이 입력해주세요"><br>
+        이미지업로드: <input type="file" name="img[]" accept="image/*" multiple /><br>
+
         <input type="submit" value="등록하기">
+
+        
 
     </form>
 
