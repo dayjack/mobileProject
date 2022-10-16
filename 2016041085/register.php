@@ -20,19 +20,19 @@
         <input type="text" name="crn" placeholder="- 없이 입력하세요"><br>
         <br>인접 학교 코드 <br><br>
         <a href='http://jubsoo2.bscu.ac.kr/src_gogocode/src_gogocode.asp' target='_blank'>학교 코드 검색해보기</a><br><br>
-        <input type="text" name="scode" placeholder="- 없이 입력하세요"><hr>
+        <input type="text" name="scode" placeholder="- 없이 입력하세요"><br>
 
         <br>식당 이름 입력 <br><br>
         <input type="text" name="restaurant_name" placeholder="ex) 맥도날드 목동사거리점"><br>
         <br>이메일 <br><br>
         <input type="text" name="email" placeholder="xxxxxxxx@gmail.com"><br>
         <br>주소 <br><br>
-        <input type="text" name="address" placeholder="여기에 주소 입력"><br>
+        <input type="text" name="address" placeholder="여기에 주소 입력"><br><br>
 
         <label for="restaurant_info">식당 정보 입력</label><br><br>
         <textarea name="restaurant_info" id="restaurant_info" cols="40" rows="30" placeholder="ex) 운영시간: 매일 -오전 10:10 ~ 오후 9:45
         휴무일: 연중 무휴
-        전화번호 : 1111-2222"></textarea><br>
+        전화번호 : 1111-2222"></textarea><br><br>
         
         <label for="menu">메뉴 정보 입력</label><br><br>
         <textarea name="menu" id="menu" cols="40" rows="30" placeholder="ex) 김치찌개 - 7000
