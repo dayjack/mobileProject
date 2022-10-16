@@ -58,16 +58,17 @@ $count = count($array_id);
         </div>
     </div>
     <div class="middle">
-       <br>
-    <?php
-    for ($i=0 ; $i < $count ; $i++) {
-        echo "<br><a href='./showrestaurantapply.php?restaurant_id=$array_id[$i]'> $array_name[$i] </a><hr>";
-          
-    }
-    ?>
+    <div class="middle info">
+        <br><h2>식당리스트</h2><br><hr class="myhr">
     </div>
 
-    
+    <?php
+    echo "";
+    for ($i=0 ; $i < $count ; $i++) {
+        echo "<a href='./showrestaurantapply.php?restaurant_id=$array_id[$i]'> $array_name[$i] </a><hr class=\"myhr\">";  
+    }
+    ?>
+    </div>    
 </body>
 </html>
 

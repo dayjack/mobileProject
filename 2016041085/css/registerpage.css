@@ -29,7 +29,7 @@ textarea {
 }
 .middle {
     font-family:verdana;
-    background-color: #d3c0d3;
+    background-color: #f79bf7;
     color : white;
     text-align : center;
 }
@@ -38,8 +38,12 @@ textarea {
     color : gray;
     vertical-align: middle;
 }
-a {
+.mya {
     color : gray;
+    text-decoration-line: none;
+}
+a {
+    color : white;
     text-decoration-line: none;
 }
 .middle.info {
@@ -49,4 +53,9 @@ img {
     max-width: 100%;
     width: auto !important;
     height: auto !important;
+}
+.myhr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
 }

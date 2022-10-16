@@ -19,7 +19,7 @@
         <br>사업자 등록번호 입력<br><br>
         <input type="text" name="crn" placeholder="- 없이 입력하세요"><br>
         <br>인접 학교 코드 <br><br>
-        <a href='http://jubsoo2.bscu.ac.kr/src_gogocode/src_gogocode.asp' target='_blank'>학교 코드 검색해보기</a><br><br>
+        <a href='http://jubsoo2.bscu.ac.kr/src_gogocode/src_gogocode.asp' target='_blank' class="mya">학교 코드 검색해보기</a><br><br>
         <input type="text" name="scode" placeholder="- 없이 입력하세요"><br>
 
         <br>식당 이름 입력 <br><br>
