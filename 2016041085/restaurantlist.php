@@ -1,6 +1,7 @@
 <?php
 /**
  * retaurant 테이블의 정보를 json으로 보여주는 페이지
+ * parameter의 category 변수값으로 보여주는 데이터 결정
 */
 
 // datebase 로그인 정보는 다른 파일로 분리
@@ -22,7 +23,28 @@ mysqli_query($db, "set session character_set_client=utf8;");
 mysqli_set_charset($conn,"utf8mb4");
 
 
-$sql = "Select * from restaurant;";
+$category = $_GET['category'];
+switch($category) {
+    case 1:
+        $sql = "Select * from restaurant where food_category = '1';";
+        break;
+    case 2:
+        $sql = "Select * from restaurant where food_category = '2';";
+        break;
+    case 3:
+        $sql = "Select * from restaurant where food_category = '3';";
+        break;
+    case 4:
+        $sql = "Select * from restaurant where food_category = '4';";
+        break;
+    case 5:
+        $sql = "Select * from restaurant where food_category = '5';";
+        break;
+    default:
+        $sql = "Select * from restaurant;";
+        break;
+}
+
 $result = mysqli_query($conn, $sql);
 $output = array(); // 응답값으로 보낼 값
 
