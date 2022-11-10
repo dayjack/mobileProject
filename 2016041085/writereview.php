@@ -21,14 +21,14 @@ mysqli_query($db, "set session character_set_client=utf8;");
 mysqli_set_charset($conn,"utf8mb4");
 
 // db 데이터 받을 변수들
-$crn = $_GET[crn];
+$restaurant_id = $_GET[restaurant_id];
 $vcontent = $_GET[vcontent];
 $rate = $_GET[rate];
 $nickname = $_GET[nickname];
 
 
 // review를 작성한다. parameter로 값을 받아온다. 
-$sql = "insert into review(crn, vcontent, rate, nickname) values('$crn', '$vcontent', '$rate', '$nickname');";
+$sql = "insert into review(restaurant_id, vcontent, rate, nickname) values('$restaurant_id', '$vcontent', '$rate', '$nickname');";
 
 if ($conn->query($sql) === TRUE) {
     echo "승인 완료<br>"; 

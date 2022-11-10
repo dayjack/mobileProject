@@ -22,28 +22,106 @@ mysqli_query($db, "set session character_set_results=utf8;");
 mysqli_query($db, "set session character_set_client=utf8;");
 mysqli_set_charset($conn,"utf8mb4");
 
-
+$restaurant_id = $_GET[restaurant_id];
 $category = $_GET['category'];
-switch($category) {
-    case 1:
-        $sql = "Select * from restaurant where food_category = '1';";
-        break;
-    case 2:
-        $sql = "Select * from restaurant where food_category = '2';";
-        break;
-    case 3:
-        $sql = "Select * from restaurant where food_category = '3';";
-        break;
-    case 4:
-        $sql = "Select * from restaurant where food_category = '4';";
-        break;
-    case 5:
-        $sql = "Select * from restaurant where food_category = '5';";
-        break;
-    default:
-        $sql = "Select * from restaurant;";
-        break;
+$scode = $_GET['scode'];
+
+if ($scode == 0 or $scode == NULL) {
+    if ($restaurant_id == NULL or $restaurant_id == 0) {
+        switch($category) {
+            case 1:
+                $sql = "Select * from restaurant where food_category = '1';";
+                break;
+            case 2:
+                $sql = "Select * from restaurant where food_category = '2';";
+                break;
+            case 3:
+                $sql = "Select * from restaurant where food_category = '3';";
+                break;
+            case 4:
+                $sql = "Select * from restaurant where food_category = '4';";
+                break;
+            case 5:
+                $sql = "Select * from restaurant where food_category = '5';";
+                break;
+            default:
+                $sql = "Select * from restaurant;";
+                break;
+        }
+    } else {
+        switch($category) {
+            case 1:
+                $sql = "Select * from restaurant where food_category = '1' and restaurant_id = '$restaurant_id';";
+                break;
+            case 2:
+                $sql = "Select * from restaurant where food_category = '2' and restaurant_id = '$restaurant_id';";
+                break;
+            case 3:
+                $sql = "Select * from restaurant where food_category = '3' and restaurant_id = '$restaurant_id';";
+                break;
+            case 4:
+                $sql = "Select * from restaurant where food_category = '4' and restaurant_id = '$restaurant_id';";
+                break;
+            case 5:
+                $sql = "Select * from restaurant where food_category = '5' and restaurant_id = '$restaurant_id';";
+                break;
+            default:
+                $sql = "Select * from restaurant where restaurant_id = '$restaurant_id'";
+                break;
+        }
+    }
+} else {
+    if ($restaurant_id == NULL or $restaurant_id == 0) {
+        switch($category) {
+            case 1:
+                $sql = "Select * from restaurant where food_category = '1';";
+                break;
+            case 2:
+                $sql = "Select * from restaurant where food_category = '2';";
+                break;
+            case 3:
+                $sql = "Select * from restaurant where food_category = '3';";
+                break;
+            case 4:
+                $sql = "Select * from restaurant where food_category = '4';";
+                break;
+            case 5:
+                $sql = "Select * from restaurant where food_category = '5';";
+                break;
+            default:
+                $sql = "Select * from restaurant;";
+                break;
+        }
+    } else {
+        switch($category) {
+            case 1:
+                $sql = "Select * from restaurant where food_category = '1' and restaurant_id = '$restaurant_id' and scode = '$scode';";
+                break;
+            case 2:
+                $sql = "Select * from restaurant where food_category = '2' and restaurant_id = '$restaurant_id' and scode = '$scode';";
+                break;
+            case 3:
+                $sql = "Select * from restaurant where food_category = '3' and restaurant_id = '$restaurant_id' and scode = '$scode';";
+                break;
+            case 4:
+                $sql = "Select * from restaurant where food_category = '4' and restaurant_id = '$restaurant_id' and scode = '$scode';";
+                break;
+            case 5:
+                $sql = "Select * from restaurant where food_category = '5' and restaurant_id = '$restaurant_id' and scode = '$scode';";
+                break;
+            default:
+                $sql = "Select * from restaurant where restaurant_id = '$restaurant_id' and scode = '$scode'";
+                break;
+        }
+    }
+
 }
+
+
+
+
+
+
 
 $result = mysqli_query($conn, $sql);
 $output = array(); // 응답값으로 보낼 값
