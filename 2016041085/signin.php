@@ -24,8 +24,8 @@ mysqli_query($db, "set session character_set_client=utf8;");
 mysqli_set_charset($conn,"utf8mb4");
 
 // 이전 페이지에서 restaurant_id를 받아온다.
-$id = $_GET[id];
-$password = $_GET[password];
+$id = $_POST[id];
+$password = $_POST[password];
 
 $password_return;
 

@@ -22,12 +22,12 @@ mysqli_query($db, "set session character_set_client=utf8;");
 mysqli_set_charset($conn,"utf8mb4");
 
 // 이전 페이지에서 회원가입 정보를 받아온다.
-$id = $_GET[id];
-$password = $_GET[password];
-$email = $_GET[email];
-$scode = $_GET[scode];
-$nickname = $_GET[nickname];
-$authority = $_GET[authority];
+$id = $_POST[id];
+$password = $_POST[password];
+$email = $_POST[email];
+$scode = $_POST[scode];
+$nickname = $_POST[nickname];
+$authority = $_POST[authority];
 
 // 쿼리문 실행
 $result = mysqli_query($conn,"insert into signup(id, password, email, scode, nickname, authority) values('$id','$password','$email','$scode','$nickname', '$authority');");
