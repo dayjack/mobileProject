@@ -19,8 +19,16 @@ mysqli_query($db, "set session character_set_results=utf8;");
 mysqli_query($db, "set session character_set_client=utf8;");
 mysqli_set_charset($conn,"utf8mb4");
 
+$pnum = $_GET['pnum'];
+$scode = $_GET['scode'];
 
-$sql = "Select * from post;";
+if ($pnum == NULL) {
+    $sql = "Select * from post;";
+} else {
+    $sql = "Select * from post where pnum = '$pnum';";
+}
+
+
 $result = mysqli_query($conn, $sql);
 $output = array(); // 응답값으로 보낼 값
 

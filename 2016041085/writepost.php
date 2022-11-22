@@ -21,10 +21,10 @@ mysqli_query($db, "set session character_set_client=utf8;");
 mysqli_set_charset($conn,"utf8mb4");
 
 // db 데이터 받을 변수들
-$nickname = $_GET[nickname];
-$ptitle = $_GET[ptitle];
-$pcontent = $_GET[pcontent];
-$scode = $_GET[scode];
+$nickname = $_POST[nickname];
+$ptitle = $_POST[ptitle];
+$pcontent = $_POST[pcontent];
+$scode = $_POST[scode];
 
 
 
