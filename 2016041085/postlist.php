@@ -23,7 +23,7 @@ $pnum = $_GET['pnum'];
 $scode = $_GET['scode'];
 
 if ($pnum == NULL) {
-    $sql = "Select * from post;";
+    $sql = "Select * from post order by pnum desc;";
 } else {
     $sql = "Select * from post where pnum = '$pnum';";
 }

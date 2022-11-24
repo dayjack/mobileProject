@@ -23,7 +23,7 @@ mysqli_set_charset($conn,"utf8mb4");
 $restaurant_id = $_GET[restaurant_id];
 
 
-$sql = "Select * from review where restaurant_id = $restaurant_id;";
+$sql = "Select * from review where restaurant_id = $restaurant_id order by vcode desc;";
 $result = mysqli_query($conn, $sql);
 $output = array(); // 응답값으로 보낼 값
 
