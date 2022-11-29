@@ -74,22 +74,22 @@ if ($scode == 0 or $scode == NULL) {
     if ($restaurant_id == NULL or $restaurant_id == 0) {
         switch($category) {
             case 1:
-                $sql = "Select * from restaurant where food_category = '1';";
+                $sql = "Select * from restaurant where food_category = '1' and scode = '$scode';";
                 break;
             case 2:
-                $sql = "Select * from restaurant where food_category = '2';";
+                $sql = "Select * from restaurant where food_category = '2' and scode = '$scode';";
                 break;
             case 3:
-                $sql = "Select * from restaurant where food_category = '3';";
+                $sql = "Select * from restaurant where food_category = '3' and scode = '$scode';";
                 break;
             case 4:
-                $sql = "Select * from restaurant where food_category = '4';";
+                $sql = "Select * from restaurant where food_category = '4' and scode = '$scode';";
                 break;
             case 5:
-                $sql = "Select * from restaurant where food_category = '5';";
+                $sql = "Select * from restaurant where food_category = '5' and scode = '$scode';";
                 break;
             default:
-                $sql = "Select * from restaurant;";
+                $sql = "Select * from restaurant where scode = '$scode';";
                 break;
         }
     } else {
