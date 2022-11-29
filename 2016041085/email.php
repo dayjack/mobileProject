@@ -4,8 +4,8 @@ require("/var/www/mail.php");
 require_once("class.phpmailer.php");
 
 $from_id="frostjanna12@naver.com";
-$to_id=$_GET['email'];
-$num = $_GET['num'];
+$to_id=$_POST['email'];
+$num = $_POST['num'];
 $smtp="smtp.naver.com"; 
 $title="인증번호를 확인하세요";
 $article="인증 번호는 $num 입니다.";
