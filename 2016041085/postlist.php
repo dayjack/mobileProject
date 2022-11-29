@@ -25,12 +25,9 @@ $scode = $_GET['scode'];
 if ($pnum == NULL || $pnum == 0) {
     $sql = "Select * from post where scode = '$scode' order by pnum desc;";
 } else {
-    $sql = "Select * from post where pnum = '$pnum' and scode = '$scode';";
+    $sql = "Select * from post where pnum = '$pnum';";
 }
 
-if ($scode == 0) {
-    $sql = "Select * from post where order by pnum desc;";
-}
 
 
 $result = mysqli_query($conn, $sql);
