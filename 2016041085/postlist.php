@@ -22,11 +22,20 @@ mysqli_set_charset($conn,"utf8mb4");
 $pnum = $_GET['pnum'];
 $scode = $_GET['scode'];
 
-if ($pnum == NULL || $pnum == 0) {
-    $sql = "Select * from post where scode = '$scode' order by pnum desc;";
+if ($scode == NULL || $scode == 0) {
+    if ($pnum == NULL || $pnum == 0) {
+        $sql = "Select * from post order by pnum desc;";
+    } else {
+        $sql = "Select * from post where pnum = '$pnum';";
+    }
 } else {
-    $sql = "Select * from post where pnum = '$pnum';";
+    if ($pnum == NULL || $pnum == 0) {
+        $sql = "Select * from post where scode = '$scode' order by pnum desc;";
+    } else {
+        $sql = "Select * from post where pnum = '$pnum';";
+    }
 }
+
 
 
 
