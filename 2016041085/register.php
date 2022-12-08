@@ -29,10 +29,11 @@
         <br>주소 <br><br>
         <input type="text" name="address" placeholder="여기에 주소 입력"><br><br>
 
-        <label for="restaurant_info">식당 정보 입력</label><br><br>
+        <label for="restaurant_info">식당 정보 & 이벤트 입력</label><br><br>
         <textarea name="restaurant_info" id="restaurant_info" cols="40" rows="30" placeholder="ex) 운영시간: 매일 -오전 10:10 ~ 오후 9:45
         휴무일: 연중 무휴
-        전화번호 : 1111-2222"></textarea><br><br>
+        전화번호 : 1111-2222
+        이벤트 진행중  : 리뷰 작성 인증시  재방문시 음료 무료 쿠폰 증정"></textarea><br><br>
         
         <label for="menu">메뉴 정보 입력</label><br><br>
         <textarea name="menu" id="menu" cols="40" rows="30" placeholder="ex) 김치찌개 - 7000
